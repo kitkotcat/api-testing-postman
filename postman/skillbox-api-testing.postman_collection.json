@@ -464,5 +464,28 @@
         "type": "string"
       }
     ]
-  }
+  },
+  "event": [
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "pm.test(\"Response status is not 5xx\", function () {",
+          "    pm.expect(pm.response.code).to.be.below(500);",
+          "});",
+          "",
+          "pm.test(\"JSON body is valid when Content-Type is JSON\", function () {",
+          "    const contentType = pm.response.headers.get(\"Content-Type\") || \"\";",
+          "",
+          "    if (contentType.toLowerCase().includes(\"json\")) {",
+          "        pm.expect(function () {",
+          "            pm.response.json();",
+          "        }).not.to.throw();",
+          "    }",
+          "});"
+        ]
+      }
+    }
+  ]
 }

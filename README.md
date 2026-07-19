@@ -76,6 +76,15 @@ api-testing-postman/
 
 The example environment contains placeholders only. Real credentials must not be committed to the repository.
 
+## Automated checks
+
+The collection includes collection-level Postman checks that:
+
+- fail when an API request returns an unexpected `5xx` server error;
+- verify that a response can be parsed when its `Content-Type` declares JSON.
+
+Request-specific status code and response schema checks are added only when verified expected results or an API contract are available.
+
 ## Security
 
 Real credentials, passwords and tokens are not stored in this repository.
@@ -90,7 +99,6 @@ The request `PUT-NEG-01 — Без авторизации` explicitly uses `noau
 
 ## Planned improvements
 
-- add Postman checks with `pm.test`;
 - validate status codes and response schemas;
 - add test cases and bug reports;
 - replace hardcoded resource IDs with variables.
