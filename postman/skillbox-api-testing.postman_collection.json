@@ -32,7 +32,7 @@
                 }
               }
             },
-            "url": "{{base_url}}/products/873261",
+            "url": "{{base_url}}/products/{{product_id}}",
             "auth": {
               "type": "noauth"
             }
@@ -63,12 +63,12 @@
                 }
               }
             },
-            "url": "{{base_url}}/products/873261"
+            "url": "{{base_url}}/products/{{product_id}}"
           },
           "response": []
         },
         {
-          "name": "PUT без body",
+          "name": "PUT-NEG-06 — Запрос без body",
           "id": "f328ca26-5d2a-464a-91f6-34c43877642f",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
@@ -85,7 +85,7 @@
                 }
               }
             },
-            "url": "{{base_url}}/products/873261"
+            "url": "{{base_url}}/products/{{product_id}}"
           },
           "response": []
         },
@@ -113,7 +113,7 @@
                 }
               }
             },
-            "url": "{{base_url}}/products/873261"
+            "url": "{{base_url}}/products/{{product_id}}"
           },
           "response": []
         },
@@ -141,7 +141,7 @@
                 }
               }
             },
-            "url": "{{base_url}}/products/873261"
+            "url": "{{base_url}}/products/{{product_id}}"
           },
           "response": []
         },
@@ -169,7 +169,7 @@
                 }
               }
             },
-            "url": "{{base_url}}/products"
+            "url": "{{base_url}}/products/{{product_id}}"
           },
           "response": []
         },
@@ -197,7 +197,7 @@
                 }
               }
             },
-            "url": "{{base_url}}/products/873261"
+            "url": "{{base_url}}/products/{{product_id}}"
           },
           "response": []
         },
@@ -225,7 +225,7 @@
                 }
               }
             },
-            "url": "{{base_url}}/products/873261"
+            "url": "{{base_url}}/products/{{product_id}}"
           },
           "response": []
         },
@@ -246,14 +246,14 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"name\": \"Test\",\n  \"price\": \"abc\"\n}",
+              "raw": "{\n  \"name\": \"Missing Product Update\",\n  \"price\": 1000,\n  \"description\": \"Non-existent product ID test\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
                 }
               }
             },
-            "url": "{{base_url}}/products/99999999999999"
+            "url": "{{base_url}}/products/{{missing_product_id}}"
           },
           "response": []
         }
@@ -281,7 +281,7 @@
                 }
               }
             },
-            "url": "{{base_url}}/products/873261"
+            "url": "{{base_url}}/products/{{product_id}}"
           },
           "response": []
         },
@@ -303,7 +303,7 @@
                 }
               }
             },
-            "url": "{{base_url}}/products/873261"
+            "url": "{{base_url}}/products/{{product_id}}"
           },
           "response": []
         },
@@ -347,7 +347,7 @@
                 }
               }
             },
-            "url": "{{base_url}}/products/1 OR 1=1"
+            "url": "{{base_url}}/products/1%20OR%201%3D1"
           },
           "response": []
         },
@@ -369,7 +369,7 @@
                 }
               }
             },
-            "url": "{{base_url}}/products/8732618567589798679867"
+            "url": "{{base_url}}/products/{{missing_product_id}}"
           },
           "response": []
         }
@@ -448,42 +448,6 @@
         }
       ],
       "id": "2accc1b7-7274-4698-b81f-d4673c229551"
-    }
-  ],
-  "event": [
-    {
-      "listen": "prerequest",
-      "script": {
-        "id": "b499c7a1-6461-44dc-b126-341f67fc7f0f",
-        "type": "text/javascript",
-        "packages": {},
-        "requests": {},
-        "exec": [
-          ""
-        ]
-      }
-    },
-    {
-      "listen": "test",
-      "script": {
-        "id": "ce68170b-4511-482b-bf90-2da530bfdea0",
-        "type": "text/javascript",
-        "packages": {},
-        "requests": {},
-        "exec": [
-          ""
-        ]
-      }
-    }
-  ],
-  "variable": [
-    {
-      "key": "base_url",
-      "value": ""
-    },
-    {
-      "key": "Endpoint",
-      "value": ""
     }
   ],
   "auth": {
