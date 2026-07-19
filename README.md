@@ -37,6 +37,10 @@ Main areas:
 - Environment variables
 - Git and GitHub
 
+## Test documentation
+
+- [API test scenario matrix](docs/api-test-scenarios.md) — 18 collection-derived scenarios with methods, endpoints, authentication, request body types, and execution placeholders.
+
 ## Repository structure
 
 ```text
@@ -44,6 +48,8 @@ api-testing-postman/
 ├── postman/
 │   ├── skillbox-api-testing.postman_collection.json
 │   └── skillbox-api-testing.example.postman_environment.json
+├── docs/
+│   └── api-test-scenarios.md
 ├── .gitignore
 └── README.md
 ```
