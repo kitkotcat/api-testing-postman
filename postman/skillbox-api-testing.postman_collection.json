@@ -16,17 +16,26 @@
           },
           "request": {
             "method": "PUT",
-            "header": [],
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"name\": \"Test\",\n  \"price\": \"abc\"\n}",
+              "raw": "{\n  \"name\": \"Unauthorized Update\",\n  \"price\": 1000,\n  \"description\": \"Authorization negative test\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
                 }
               }
             },
-            "url": "{{base_url}}/products/873261"
+            "url": "{{base_url}}/products/873261",
+            "auth": {
+              "type": "noauth"
+            }
           },
           "response": []
         },
@@ -38,7 +47,13 @@
           },
           "request": {
             "method": "PUT",
-            "header": [],
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
             "body": {
               "mode": "raw",
               "raw": "{\n  \"name\": \"Test\",\n  \"price\": \"abc\"\n}",
@@ -82,7 +97,13 @@
           },
           "request": {
             "method": "PUT",
-            "header": [],
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
             "body": {
               "mode": "raw",
               "raw": "{\n  \"name\": \"Full Update\",\n  \"price\": 500,\n  \"description\": \"Test desc\"\n}",
@@ -104,7 +125,13 @@
           },
           "request": {
             "method": "PUT",
-            "header": [],
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
             "body": {
               "mode": "raw",
               "raw": "{\n  \"name\": \"Zero\",\n  \"price\": 0\n}",
@@ -126,7 +153,13 @@
           },
           "request": {
             "method": "PUT",
-            "header": [],
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
             "body": {
               "mode": "raw",
               "raw": "{}",
@@ -148,32 +181,16 @@
           },
           "request": {
             "method": "PUT",
-            "header": [],
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
             "body": {
               "mode": "raw",
               "raw": "{\n  \"name\": \"Test Product Updated\",\n  \"price\": 1000,\n  \"description\": \"Updated description\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": "{{base_url}}/products/873261"
-          },
-          "response": []
-        },
-        {
-          "name": "PUT-NEG-03 — Неверный тип данных",
-          "id": "7e606d1b-beae-40fe-a90c-08f5909df90a",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "PUT",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"name\": \"Test\",\n  \"price\": \"abc\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -192,7 +209,13 @@
           },
           "request": {
             "method": "PUT",
-            "header": [],
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
             "body": {
               "mode": "raw",
               "raw": "{\n  \"name\": \"' OR 1=1\",\n  \"price\": 100\n}",
@@ -214,7 +237,13 @@
           },
           "request": {
             "method": "PUT",
-            "header": [],
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
             "body": {
               "mode": "raw",
               "raw": "{\n  \"name\": \"Test\",\n  \"price\": \"abc\"\n}",
@@ -236,28 +265,6 @@
       "item": [
         {
           "name": "DEL-POS-01 — Удаление существующего товара",
-          "id": "d4f8ee8a-ea57-46a4-8881-413d77e39d91",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": "{{base_url}}/products/873261"
-          },
-          "response": []
-        },
-        {
-          "name": "DEL-POS-01 — Удаление существующего товара Copy",
           "id": "9c3a86b1-4631-4fde-8a77-b2f2d5dc45bc",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
@@ -301,7 +308,7 @@
           "response": []
         },
         {
-          "name": "DEL-NEG-05 —  удаление  без ID",
+          "name": "DEL-NEG-05 — Удаление без ID",
           "id": "9b21c4e6-9376-42ce-8bcd-aa5c7923b2e0",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
@@ -365,18 +372,6 @@
             "url": "{{base_url}}/products/8732618567589798679867"
           },
           "response": []
-        },
-        {
-          "name": "New Request",
-          "id": "6f3ff252-cd3e-470b-8146-87afed06b520",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": []
-          },
-          "response": []
         }
       ],
       "id": "7c8f1352-63f2-424a-bd5e-0fb2258b9721"
@@ -393,10 +388,6 @@
           "request": {
             "method": "GET",
             "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{}"
-            },
             "url": "{{base_url}}/products"
           },
           "response": []
@@ -410,48 +401,25 @@
           "request": {
             "method": "GET",
             "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"product_id\": 874911,\n  \"quantity\": 2\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
             "url": "{{base_url}}/orders"
           },
           "response": []
         },
         {
-          "name": "\"id\": 874911",
-          "id": "1241210e-7ac8-476e-8b3a-fff3c0ec1c25",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "PUT",
-            "header": [],
-            "body": {
-              "mode": "graphql",
-              "graphql": {
-                "query": "SELECT stock FROM products WHERE id = 874911;",
-                "variables": ""
-              }
-            },
-            "url": "{{base_url}}/products/874911"
-          },
-          "response": []
-        },
-        {
-          "name": "регистрация",
+          "name": "AUTH-POST-01 — Регистрация пользователя",
           "id": "6fb7a77a-0f42-4c09-8c77-c10a52be4334",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
           },
           "request": {
             "method": "POST",
-            "header": [],
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
             "body": {
               "mode": "raw",
               "raw": "{\n  \"username\": \"test123\",\n  \"email\": \"test@mail.com\",\n  \"password\": \"Test123!\"\n}",
@@ -461,12 +429,12 @@
                 }
               }
             },
-            "url": "{{base_url}}POST /register"
+            "url": "{{base_url}}/register"
           },
           "response": []
         },
         {
-          "name": "New Request",
+          "name": "DEBUG-GET-01 — Проверка данных через debug endpoint",
           "id": "9e6813b5-99e4-4956-ac71-ec7d16ef7cae",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
@@ -474,10 +442,6 @@
           "request": {
             "method": "GET",
             "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{}"
-            },
             "url": "{{base_url}}/debug/db"
           },
           "response": []
@@ -521,5 +485,20 @@
       "key": "Endpoint",
       "value": ""
     }
-  ]
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{api_username}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{api_password}}",
+        "type": "string"
+      }
+    ]
+  }
 }
