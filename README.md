@@ -42,7 +42,9 @@ Main areas:
 ```text
 api-testing-postman/
 ├── postman/
-│   └── skillbox-api-testing.postman_collection.json
+│   ├── skillbox-api-testing.postman_collection.json
+│   └── skillbox-api-testing.example.postman_environment.json
+├── .gitignore
 └── README.md
 ```
 
@@ -50,21 +52,30 @@ api-testing-postman/
 
 1. Clone the repository.
 2. Open Postman and select **Import**.
-3. Import:
+3. Import the collection:
 
    `postman/skillbox-api-testing.postman_collection.json`
 
-4. Create a Postman environment with these variables:
+4. Import the example environment:
 
-| Variable | Description |
-|---|---|
-| `base_url` | Base URL of the tested API |
-| `api_username` | API username |
-| `api_password` | API password |
+   `postman/skillbox-api-testing.example.postman_environment.json`
 
-5. Select the environment.
-6. Update resource IDs when required.
-7. Run individual requests or use Collection Runner.
+5. In Postman, duplicate or edit the imported environment.
+6. Replace the placeholder values with values for the tested API:
+
+   | Variable | Description |
+   |---|---|
+   | `base_url` | Base URL of the tested API |
+   | `api_username` | API username |
+   | `api_password` | API password |
+   | `product_id` | ID of an existing product |
+   | `missing_product_id` | ID of a non-existent product |
+   | `stock_product_id` | Product ID used in stock scenarios |
+
+7. Select the environment.
+8. Run individual requests or use Postman Collection Runner.
+
+The example environment contains placeholders only. Real credentials must not be committed to the repository.
 
 ## Security
 
@@ -82,7 +93,6 @@ The request `PUT-NEG-01 — Без авторизации` explicitly uses `noau
 
 - add Postman checks with `pm.test`;
 - validate status codes and response schemas;
-- add an example environment without secrets;
 - add test cases and bug reports;
 - replace hardcoded resource IDs with variables.
 
