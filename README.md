@@ -70,7 +70,6 @@ api-testing-postman/
    | `api_password` | API password |
    | `product_id` | ID of an existing product |
    | `missing_product_id` | ID of a non-existent product |
-   | `stock_product_id` | Product ID used in stock scenarios |
 
 7. Select the environment.
 8. Run individual requests or use Postman Collection Runner.
