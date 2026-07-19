@@ -40,6 +40,7 @@ Main areas:
 ## Test documentation
 
 - [API test scenario matrix](docs/api-test-scenarios.md) — 18 collection-derived scenarios with methods, endpoints, authentication, request body types, and execution placeholders.
+- [Manual API test cases and bug reports](docs/manual-test-artifacts/product-creation-api-test-cases-and-bug-reports.xlsx) — positive and negative product-creation scenarios with expected and actual results, severity, priority, and linked defects.
 
 ## Repository structure
 
@@ -49,7 +50,9 @@ api-testing-postman/
 │   ├── skillbox-api-testing.postman_collection.json
 │   └── skillbox-api-testing.example.postman_environment.json
 ├── docs/
-│   └── api-test-scenarios.md
+│   ├── api-test-scenarios.md
+│   └── manual-test-artifacts/
+│       └── product-creation-api-test-cases-and-bug-reports.xlsx
 ├── .gitignore
 └── README.md
 ```
