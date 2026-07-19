@@ -1,0 +1,525 @@
+{
+  "info": {
+    "_postman_id": "5e9ee003-edb9-471e-bb39-df16de264ae6",
+    "name": "Skillbox API Testing",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "PUT",
+      "item": [
+        {
+          "name": "PUT-NEG-01 — Без авторизации",
+          "id": "88e4eda3-1694-421b-8176-33ec3701b46e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Test\",\n  \"price\": \"abc\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{base_url}}/products/873261"
+          },
+          "response": []
+        },
+        {
+          "name": "PUT-NEG-03 — Неверный тип данных",
+          "id": "a5d194a8-b386-494c-8166-bc8391b35990",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Test\",\n  \"price\": \"abc\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{base_url}}/products/873261"
+          },
+          "response": []
+        },
+        {
+          "name": "PUT без body",
+          "id": "f328ca26-5d2a-464a-91f6-34c43877642f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{base_url}}/products/873261"
+          },
+          "response": []
+        },
+        {
+          "name": "PUT-POS-02 — Полное обновление всех полей",
+          "id": "736c19c6-8c6d-4a15-b5f0-51992cf567a1",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Full Update\",\n  \"price\": 500,\n  \"description\": \"Test desc\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{base_url}}/products/873261"
+          },
+          "response": []
+        },
+        {
+          "name": "PUT-POS-03 — Граничное значение (price = 0)",
+          "id": "7b01a506-2710-4593-b684-b7cf28ea069e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Zero\",\n  \"price\": 0\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{base_url}}/products/873261"
+          },
+          "response": []
+        },
+        {
+          "name": "PUT-NEG-02 — Пустое тело",
+          "id": "da274440-942d-4716-8bf6-9526adee0207",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{base_url}}/products"
+          },
+          "response": []
+        },
+        {
+          "name": "PUT-POS-01 — Обновление товара (валидные данные)",
+          "id": "40f54872-c336-4bfc-b830-599b88aeeb9e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Test Product Updated\",\n  \"price\": 1000,\n  \"description\": \"Updated description\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{base_url}}/products/873261"
+          },
+          "response": []
+        },
+        {
+          "name": "PUT-NEG-03 — Неверный тип данных",
+          "id": "7e606d1b-beae-40fe-a90c-08f5909df90a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Test\",\n  \"price\": \"abc\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{base_url}}/products/873261"
+          },
+          "response": []
+        },
+        {
+          "name": "PUT-NEG-05 — SQL-инъекция",
+          "id": "3cafe605-aa23-40d3-951e-b19ad04121b2",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"' OR 1=1\",\n  \"price\": 100\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{base_url}}/products/873261"
+          },
+          "response": []
+        },
+        {
+          "name": "PUT-NEG-04 — Несуществующий ID",
+          "id": "a3fdb44f-10d0-4e3b-b0c6-9e06ed79359b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Test\",\n  \"price\": \"abc\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{base_url}}/products/99999999999999"
+          },
+          "response": []
+        }
+      ],
+      "id": "f90507cd-e1b8-4049-905d-7de3b6ae8de7"
+    },
+    {
+      "name": "DELETE",
+      "item": [
+        {
+          "name": "DEL-POS-01 — Удаление существующего товара",
+          "id": "d4f8ee8a-ea57-46a4-8881-413d77e39d91",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{base_url}}/products/873261"
+          },
+          "response": []
+        },
+        {
+          "name": "DEL-POS-01 — Удаление существующего товара Copy",
+          "id": "9c3a86b1-4631-4fde-8a77-b2f2d5dc45bc",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{base_url}}/products/873261"
+          },
+          "response": []
+        },
+        {
+          "name": "DEL-NEG-04 — Повторное удаление",
+          "id": "42faef67-2659-463b-aa12-8a5ce822c363",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{base_url}}/products/873261"
+          },
+          "response": []
+        },
+        {
+          "name": "DEL-NEG-05 —  удаление  без ID",
+          "id": "9b21c4e6-9376-42ce-8bcd-aa5c7923b2e0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{base_url}}/products"
+          },
+          "response": []
+        },
+        {
+          "name": "DEL-NEG-06 — SQL-инъекция в ID",
+          "id": "9943b68a-6d40-4086-ab99-035a2b2b5126",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{base_url}}/products/1 OR 1=1"
+          },
+          "response": []
+        },
+        {
+          "name": "DEL-NEG-02 — Несуществующий ID",
+          "id": "cb42f5a4-0e63-4e01-9be8-459547fbfbbc",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{base_url}}/products/8732618567589798679867"
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "id": "6f3ff252-cd3e-470b-8146-87afed06b520",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        }
+      ],
+      "id": "7c8f1352-63f2-424a-bd5e-0fb2258b9721"
+    },
+    {
+      "name": "Тестирование остатков товара",
+      "item": [
+        {
+          "name": "TC-01 Отображение корректного остатка товара (UI + API + DB)",
+          "id": "7f2c0744-7230-49f5-b66f-8f486bbeee73",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": "{{base_url}}/products"
+          },
+          "response": []
+        },
+        {
+          "name": "TC-02 — Обновление остатка после заказа",
+          "id": "d617b0fb-f837-4920-af7a-d5c2a3a8b9cb",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"product_id\": 874911,\n  \"quantity\": 2\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{base_url}}/orders"
+          },
+          "response": []
+        },
+        {
+          "name": "\"id\": 874911",
+          "id": "1241210e-7ac8-476e-8b3a-fff3c0ec1c25",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "SELECT stock FROM products WHERE id = 874911;",
+                "variables": ""
+              }
+            },
+            "url": "{{base_url}}/products/874911"
+          },
+          "response": []
+        },
+        {
+          "name": "регистрация",
+          "id": "6fb7a77a-0f42-4c09-8c77-c10a52be4334",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"test123\",\n  \"email\": \"test@mail.com\",\n  \"password\": \"Test123!\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{base_url}}POST /register"
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "id": "9e6813b5-99e4-4956-ac71-ec7d16ef7cae",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": "{{base_url}}/debug/db"
+          },
+          "response": []
+        }
+      ],
+      "id": "2accc1b7-7274-4698-b81f-d4673c229551"
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "b499c7a1-6461-44dc-b126-341f67fc7f0f",
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "ce68170b-4511-482b-bf90-2da530bfdea0",
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": ""
+    },
+    {
+      "key": "Endpoint",
+      "value": ""
+    }
+  ]
+}
