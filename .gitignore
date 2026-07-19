@@ -1,0 +1,15 @@
+# Real Postman environments may contain credentials
+postman/*.postman_environment.json
+!postman/*.example.postman_environment.json
+
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# macOS
+.DS_Store
+
+# IDE
+.idea/
+.vscode/
