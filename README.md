@@ -1,48 +1,46 @@
-# REST API Testing with Postman
+# Тестирование REST API в Postman
 
-Portfolio project demonstrating manual REST API testing in Postman.
+Портфолио-проект по ручному тестированию REST API в **Postman**.
 
-## Project overview
+В репозитории собрана коллекция из **18 запросов**, покрывающих позитивные, негативные, граничные сценарии, авторизацию, валидацию и базовые security-проверки.
 
-The collection contains **18 requests** covering positive, negative, boundary, authorization, validation and basic security scenarios.
+## Что проверяется
 
-Main areas:
+- обновление товаров через `PUT`;
+- удаление товаров через `DELETE`;
+- проверка остатков товаров;
+- регистрация пользователя;
+- проверка данных через API endpoints.
 
-- product updates with `PUT`;
-- product deletion with `DELETE`;
-- product stock verification;
-- user registration;
-- data verification through API endpoints.
+## Покрытие тестами
 
-## Test coverage
+- обновление товара валидными данными;
+- некорректные типы данных;
+- пустое тело запроса;
+- граничное значение `price = 0`;
+- запросы без авторизации;
+- несуществующие ID ресурсов;
+- успешное и повторное удаление;
+- удаление без ID;
+- базовые SQL injection inputs;
+- проверка остатков товара.
 
-- valid product updates;
-- invalid data types;
-- empty request bodies;
-- boundary value `price = 0`;
-- requests without authorization;
-- non-existent resource IDs;
-- successful and repeated deletion;
-- deletion without an ID;
-- basic SQL injection inputs;
-- product stock checks.
+## Инструменты и технологии
 
-## Tools and technologies
+- Postman;
+- REST API;
+- HTTP: `GET`, `POST`, `PUT`, `DELETE`;
+- JSON;
+- Basic Auth;
+- Environment Variables;
+- Git / GitHub.
 
-- Postman
-- REST API
-- HTTP: `GET`, `POST`, `PUT`, `DELETE`
-- JSON
-- Basic Auth
-- Environment variables
-- Git and GitHub
+## Тестовая документация
 
-## Test documentation
+- [Матрица API-сценариев](docs/api-test-scenarios.md) — 18 сценариев из Postman Collection с методами, endpoints, авторизацией и типами request body.
+- [Тест-кейсы и баг-репорты](docs/manual-test-artifacts/product-creation-api-test-cases-and-bug-reports.xlsx) — позитивные и негативные сценарии создания товара, Expected / Actual Result, Severity, Priority и связанные дефекты.
 
-- [API test scenario matrix](docs/api-test-scenarios.md) — 18 collection-derived scenarios with methods, endpoints, authentication, request body types, and execution placeholders.
-- [Manual API test cases and bug reports](docs/manual-test-artifacts/product-creation-api-test-cases-and-bug-reports.xlsx) — positive and negative product-creation scenarios with expected and actual results, severity, priority, and linked defects.
-
-## Repository structure
+## Структура репозитория
 
 ```text
 api-testing-postman/
@@ -57,62 +55,61 @@ api-testing-postman/
 └── README.md
 ```
 
-## How to run
+## Как запустить
 
-1. Clone the repository.
-2. Open Postman and select **Import**.
-3. Import the collection:
-
+1. Клонировать репозиторий.
+2. Открыть Postman и выбрать **Import**.
+3. Импортировать коллекцию:
    `postman/skillbox-api-testing.postman_collection.json`
-
-4. Import the example environment:
-
+4. Импортировать пример окружения:
    `postman/skillbox-api-testing.example.postman_environment.json`
+5. Скопировать или отредактировать импортированное окружение.
+6. Заменить placeholder-значения на данные тестируемого API.
 
-5. In Postman, duplicate or edit the imported environment.
-6. Replace the placeholder values with values for the tested API:
+| Переменная | Назначение |
+|---|---|
+| `base_url` | Базовый URL тестируемого API |
+| `api_username` | Имя пользователя API |
+| `api_password` | Пароль API |
+| `product_id` | ID существующего товара |
+| `missing_product_id` | ID несуществующего товара |
 
-   | Variable | Description |
-   |---|---|
-   | `base_url` | Base URL of the tested API |
-   | `api_username` | API username |
-   | `api_password` | API password |
-   | `product_id` | ID of an existing product |
-   | `missing_product_id` | ID of a non-existent product |
+7. Выбрать окружение.
+8. Запускать запросы вручную или через **Postman Collection Runner**.
 
-7. Select the environment.
-8. Run individual requests or use Postman Collection Runner.
+Пример окружения содержит только placeholders. Реальные credentials в репозиторий не добавляются.
 
-The example environment contains placeholders only. Real credentials must not be committed to the repository.
+## Автоматические проверки в Postman
 
-## Automated checks
+На уровне коллекции добавлены проверки, которые:
 
-The collection includes collection-level Postman checks that:
+- фиксируют неожиданные серверные ошибки `5xx`;
+- проверяют возможность распарсить response, если `Content-Type` указывает на JSON.
 
-- fail when an API request returns an unexpected `5xx` server error;
-- verify that a response can be parsed when its `Content-Type` declares JSON.
+Проверки конкретных status codes и response schemas добавляются только там, где подтверждены Expected Result или API contract.
 
-Request-specific status code and response schema checks are added only when verified expected results or an API contract are available.
+## Безопасность
 
-## Security
+Реальные логины, пароли и токены в репозитории не хранятся.
 
-Real credentials, passwords and tokens are not stored in this repository.
-
-The collection uses:
+Коллекция использует переменные:
 
 - `{{base_url}}`
 - `{{api_username}}`
 - `{{api_password}}`
 
-The request `PUT-NEG-01 — Без авторизации` explicitly uses `noauth` so that only the authorization behavior is tested.
+Запрос `PUT-NEG-01 — Без авторизации` использует `noauth`, чтобы отдельно проверить поведение API без авторизации.
 
-## Planned improvements
+## Что демонстрирует проект
 
-- validate status codes and response schemas;
-- add test cases and bug reports;
-- replace hardcoded resource IDs with variables.
+- ручное тестирование REST API;
+- позитивные и негативные сценарии;
+- работа с HTTP и JSON;
+- проверка авторизации и валидации;
+- оформление тест-кейсов и баг-репортов;
+- работа с переменными окружения Postman.
 
-## Author
+## Автор
 
-Ekaterina Peshkun  
-Junior Manual QA Engineer
+**Екатерина Пешкун**
+Junior QA Engineer
